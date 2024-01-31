@@ -3,7 +3,7 @@ import "dotenv/config";
 
 export default async function GetTweetURL(userURL, datetime, peopelLook) {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     devtools: false,
     ignoreHTTPSErrors: false,
   });
@@ -22,7 +22,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
     waitUntil: "networkidle2",
   });
 
-  await page.waitForSelector(`article[data-testid="tweet"]`);
+  await page.waitForSelector(`section[aria-labelledby="accessible-list-0"]`);
 
   const today = datetime;
   let moreContentUrlList = [];
@@ -73,7 +73,8 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
             if (
               hrefElement == null ||
               dateElement == null ||
-              articleElement == null
+              articleElement == null ||
+              analyticsElement == null
             ) {
               return;
             }
@@ -132,7 +133,9 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
           waitUntil: "networkidle2",
         });
 
-        await page.waitForSelector(`article[data-testid="tweet"]`);
+        await page.waitForSelector(
+          `section[aria-labelledby="accessible-list-1"]`
+        );
 
         const content = await page.$eval(
           `div[class="css-175oi2r"] div[data-testid="tweetText"]`,
