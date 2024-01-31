@@ -1,6 +1,6 @@
-const express = require("express");
-const cors = require("cors");
-const puppeteer = require("puppeteer");
+import GetTweet from "./getTweet.js";
+import express from "express";
+import cors from "cors";
 
 const app = express();
 const port = 3001;
@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/getTweet", async (req, res) => {
-  console.log(req.body);
+  const filters = req.body;
+  const result = await GetTweet(filters);
+  res.send(result);
 });
 
 app.listen(port, () => {

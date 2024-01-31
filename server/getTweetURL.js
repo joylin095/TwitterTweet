@@ -1,8 +1,9 @@
 import puppeteer from "puppeteer";
+import "dotenv/config";
 
 export default async function GetTweetURL(userURL, datetime, peopelLook) {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     devtools: false,
     ignoreHTTPSErrors: false,
   });
@@ -20,6 +21,8 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
   await page.goto(userURL, {
     waitUntil: "networkidle2",
   });
+
+  await page.waitForSelector(`article[data-testid="tweet"]`);
 
   const today = datetime;
   let moreContentUrlList = [];
@@ -45,9 +48,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
       (today, peopelLook) => {
         let moreContentURL = [];
         let tweet = [];
-        let tweetDate = {};
         let lastDate = "0";
-        let numOfLastDate = 0;
         document
           .querySelectorAll(
             `div[class="css-175oi2r r-1iusvr4 r-16y2uox r-1777fci r-kzbkwu"]`
@@ -91,11 +92,10 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
               ? parseFloat(analyticsString.replace("萬", "")) * 10000
               : parseInt(analyticsString.replace(",", ""), 10);
 
-            tweetDate[date] = tweetDate[date] ? tweetDate[date] + 1 : 1;
-            if (tweetDate[date] > numOfLastDate) {
-              numOfLastDate = tweetDate[date];
+            if (date > lastDate) {
               lastDate = date;
             }
+
             if (date !== today || analyticsNum < peopelLook) {
               return;
             }
@@ -131,6 +131,8 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
         await page.goto(url, {
           waitUntil: "networkidle2",
         });
+
+        await page.waitForSelector(`article[data-testid="tweet"]`);
 
         const content = await page.$eval(
           `div[class="css-175oi2r"] div[data-testid="tweetText"]`,

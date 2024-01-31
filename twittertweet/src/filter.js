@@ -4,7 +4,7 @@ import InputFilter from "./inputFilter";
 import { useFilter } from "./filterContext";
 
 export default function Filter() {
-  const { filters, setFilters, setFilterApplied } = useFilter();
+  const { filters, setFilters, filterApplied, setFilterApplied } = useFilter();
   const handleUserChange = (index, value) => {
     setFilters((prevFilters) => {
       const newFilters = [...prevFilters];
@@ -50,11 +50,24 @@ export default function Filter() {
         className="mt-5 mb-2 w-28 max-w-screen-lg sm:w-52 "
         onSubmit={onSubmit}
       >
-        <Button className="mb-3 w-full" type="submit">
-          Filter
-        </Button>
+        <FilterButton filterApplied={filterApplied}></FilterButton>
         {repeatComponent}
       </form>
     </Card>
+  );
+}
+
+function FilterButton({ filterApplied }) {
+  if (filterApplied) {
+    return (
+      <Button className="mb-3 w-full" type="submit" disabled={true}>
+        Filter
+      </Button>
+    );
+  }
+  return (
+    <Button className="mb-3 w-full" type="submit">
+      Filter
+    </Button>
   );
 }

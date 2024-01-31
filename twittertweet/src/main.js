@@ -5,7 +5,6 @@ function Main() {
   const url = "http://localhost:3001/getTweet";
   useEffect(() => {
     if (filterApplied) {
-      setFilterApplied(false);
       const response = fetch(url, {
         method: "POST",
         headers: {
@@ -13,7 +12,12 @@ function Main() {
         },
         body: JSON.stringify(filters),
         mode: "cors",
-      });
+      })
+        .then((res) => res.json())
+        .catch((err) => console.error(err))
+        .then((response) => {
+          setFilterApplied(false);
+        });
     }
   }, [filterApplied]);
 

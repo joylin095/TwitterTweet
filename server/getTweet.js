@@ -1,18 +1,22 @@
-//import GetTweetURL from "./getTweetURL";
+import GetTweetURL from "./getTweetURL.js";
 
 export default async function GetTweet(filters) {
-  const result = await Promise.all(
+  const tweet = [];
+  await Promise.all(
     filters.map(async (filter) => {
       if (filter.user && filter.date && filter.analytics) {
         const userURL = "https://twitter.com/" + filter.user.replace("@", "");
-        // const result = await GetTweetURL(
-        //   userURL,
-        //   filter.date,
-        //   filter.analytics
-        // );
-        // return result;
+        const result = await GetTweetURL(
+          userURL,
+          filter.date,
+          filter.analytics
+        );
+        tweet.push(...result);
       }
     })
   );
-  //console.log(result);
+  tweet.sort(function (a, b) {
+    return b.analyticsNum - a.analyticsNum;
+  });
+  return tweet;
 }
