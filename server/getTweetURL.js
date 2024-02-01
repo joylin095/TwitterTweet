@@ -22,7 +22,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
     waitUntil: "networkidle2",
   });
 
-  await page.waitForSelector(`section[aria-labelledby="accessible-list-0"]`);
+  await page.waitForSelector(`article[data-testid="tweet"]`);
 
   const today = datetime;
   let moreContentUrlList = [];
@@ -133,9 +133,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
           waitUntil: "networkidle2",
         });
 
-        await page.waitForSelector(
-          `section[aria-labelledby="accessible-list-1"]`
-        );
+        await page.waitForSelector(`article[data-testid="tweet"]`);
 
         const content = await page.$eval(
           `div[class="css-175oi2r"] div[data-testid="tweetText"]`,

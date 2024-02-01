@@ -12,9 +12,9 @@ root.render(
     <ThemeProvider>
       <FilterProvider>
         <div className="flex flex-row">
-          <article>
+          <div className="h-screen overflow-y-scroll">
             <Filter />
-          </article>
+          </div>
           <Main />
         </div>
       </FilterProvider>
