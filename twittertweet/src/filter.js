@@ -78,7 +78,12 @@ export default function Filter() {
       >
         <FilterButton filterApplied={filterApplied}></FilterButton>
         {repeatComponent}
-        <Button className="w-full" color="green" onClick={addInputFilter}>
+        <Button
+          className="w-full"
+          color="green"
+          disabled={filterApplied}
+          onClick={addInputFilter}
+        >
           Add Item
         </Button>
       </form>
@@ -87,15 +92,8 @@ export default function Filter() {
 }
 
 function FilterButton({ filterApplied }) {
-  if (filterApplied) {
-    return (
-      <Button className="mb-3 w-full" type="submit" disabled={true}>
-        Filter
-      </Button>
-    );
-  }
   return (
-    <Button className="mb-3 w-full" type="submit">
+    <Button className="mb-3 w-full" type="submit" disabled={filterApplied}>
       Filter
     </Button>
   );

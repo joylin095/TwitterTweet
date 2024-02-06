@@ -21,6 +21,7 @@ const initUser = [
   "ZF_lab",
   "lubi366",
   "DeFi8362",
+  "Meta8Mate",
 ];
 
 export const FilterProvider = ({ children }) => {
