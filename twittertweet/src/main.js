@@ -5,7 +5,7 @@ import TweetCard from "./tweetCard";
 function Main() {
   const { filters, filterApplied, setFilterApplied } = useFilter();
   const [datas, setdatas] = useState([]);
-  const url = "http://localhost:3001/getTweet";
+  const url = "https://twittertweet.onrender.com/getTweet";
   useEffect(() => {
     async function FetchData() {
       if (filterApplied) {
