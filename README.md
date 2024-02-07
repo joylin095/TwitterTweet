@@ -6,14 +6,17 @@
 
 ## Getting Started
 
-1. 先開啟用來爬 twitter 的 server
+1. 在 server 資料夾新增.env 檔案並填入 twitter 的 auth_token  
+   F12 => Application => Cookies => auth_token
+
+2. 先開啟用來爬 twitter 的 server
 
    ```bash
    cd server
    node server.js
    ```
 
-2. 回到跟目錄開啟 react 開發伺服器
+3. 回到跟目錄開啟 react 開發伺服器
    ```bash
    cd twittertweet
    npm start
