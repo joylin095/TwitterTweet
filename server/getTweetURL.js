@@ -14,6 +14,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
 
   await page.goto(userURL, {
     waitUntil: "networkidle2",
+    timeout: 0,
   });
   await page.setCookie({
     name: "auth_token",
@@ -22,6 +23,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
 
   await page.goto(userURL, {
     waitUntil: "networkidle2",
+    timeout: 0,
   });
 
   await page.waitForSelector(`article[data-testid="tweet"]`);
