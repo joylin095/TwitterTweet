@@ -6,6 +6,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
     headless: true,
     devtools: false,
     ignoreHTTPSErrors: false,
+    args: ["--no-sandbox"],
   });
 
   const page = await browser.newPage();
