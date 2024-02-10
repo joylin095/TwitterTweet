@@ -6,6 +6,8 @@
 
 ## Getting Started
 
+如要在本地端執行，分支有 localhost 版本
+
 1. 在 server 資料夾新增.env 檔案並填入 twitter 的 auth_token  
    F12 => Application => Cookies => auth_token
 
@@ -21,3 +23,9 @@
    cd twittertweet
    npm start
    ```
+
+## Website
+
+https://twitter-tweet.vercel.app/  
+因為使用免費 server，一次查詢 9 個使用者大約花費 10 分鐘。  
+目前如有發生錯誤，網站會爛掉。
