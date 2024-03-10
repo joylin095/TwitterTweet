@@ -18,7 +18,7 @@
    node server.js
    ```
 
-3. 回到跟目錄開啟 react 開發伺服器
+3. 回到根目錄開啟 react 開發伺服器
    ```bash
    cd twittertweet
    npm start
@@ -29,3 +29,10 @@
 <https://twitter-tweet.vercel.app/>  
 因為使用免費 server，一次查詢 9 個使用者大約花費 10 分鐘。  
 目前如有發生錯誤，網站會爛掉。
+
+
+![擷取1](https://github.com/joylin095/TwitterTweet/assets/126546487/6d9f338b-e18b-470b-b9d9-04622c617984)
+
+![擷取](https://github.com/joylin095/TwitterTweet/assets/126546487/b746bd9a-8792-4707-bb81-d3dc5f2cfde5)
+
+
