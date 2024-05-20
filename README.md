@@ -6,7 +6,8 @@
 
 ## Getting Started
 
-如要在本地端執行，分支有 localhost 版本
+如要在本地端執行，分支有 localhost 版本  
+**(localhost 已停止更新...)**
 
 1. 在 server 資料夾新增.env 檔案並填入 twitter 的 auth_token  
    F12 => Application => Cookies => auth_token
@@ -30,9 +31,6 @@
 因為使用免費 server，一次查詢 9 個使用者大約花費 10 分鐘。  
 目前如有發生錯誤，網站會爛掉。
 
-
 ![擷取1](https://github.com/joylin095/TwitterTweet/assets/126546487/6d9f338b-e18b-470b-b9d9-04622c617984)
 
 ![擷取](https://github.com/joylin095/TwitterTweet/assets/126546487/b746bd9a-8792-4707-bb81-d3dc5f2cfde5)
-
-

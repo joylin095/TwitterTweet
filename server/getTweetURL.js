@@ -71,7 +71,7 @@ export default async function GetTweetURL(userURL, datetime, peopelLook) {
               `div[class="css-175oi2r"] div[class="css-175oi2r r-1kbdv8c r-18u37iz r-1wtj0ep r-1ye8kvj r-1s2bzr4"] div[class="css-175oi2r r-18u37iz r-1h0z5md r-13awgt0"]`
             );
             const analyticsElement = tweetUnderElement[3].querySelector(
-              `span[class="css-1qaijid r-qvutc0 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp r-s1qlax"] span[class="css-1qaijid r-bcqeeo r-qvutc0 r-poiln3"]`
+              `span[class="css-1jxf684 r-1ttztb7 r-qvutc0 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp r-n7gxbd"] span[class="css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-poiln3"]`
             );
 
             if (

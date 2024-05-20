@@ -4,7 +4,7 @@ export default async function GetTweet(filters) {
   const tweet = [];
   for (const filter of filters) {
     if (filter.user && filter.date && filter.analytics) {
-      const userURL = "https://twitter.com/" + filter.user.replace("@", "");
+      const userURL = "https://x.com/" + filter.user.replace("@", "");
       const result = await GetTweetURL(userURL, filter.date, filter.analytics);
       tweet.push(...result);
     }
